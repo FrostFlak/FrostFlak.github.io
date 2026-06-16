@@ -192,6 +192,41 @@ body {
     color: var(--text);
 }
 
+.experience a {
+    color: var(--danger);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s;
+}
+
+.experience a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.experience a:hover {
+    color: var(--text);
+}
+
+.experience a:hover::after,
+.experience a.active::after {
+    width: 100%;
+}
+
+.experience a.active {
+    color: var(--text);
+}
+
 .theme-toggle {
     background: var(--bg-light);
     border: 1px solid var(--border);
