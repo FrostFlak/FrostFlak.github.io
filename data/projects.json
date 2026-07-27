@@ -16,6 +16,14 @@
     "downloads": "500+"
   },
   {
+    "title": "Chasing the Sunset",
+    "description": "A simple implemetation of 'Countdown' theme for the GMTK-2026 game jam",
+    "tags": ["Unity", "C#", "WebGl"],
+    "backgroundImage": "../data/images/chasing-the-sunset.jpg",
+    "playableLink": "https://frostflak.itch.io/chasing-the-sunset",
+    "downloads": "-"
+  },
+  {
     "title": "Spike Rush!",
     "description": "Hyper Casual destruction game made in one week for a game jam",
     "tags": ["Unity", "C#", "WebGl", "Destruction"],
