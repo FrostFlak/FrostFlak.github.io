@@ -3,280 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrostFlak</title>
-    <link rel="icon" href="/data/images/favicon.ico">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>FrostFlak — Unity Gameplay &amp; Backend Engineer</title>
+    <meta name="description" content="Portfolio of FrostFlak (Nicolae Rotari) — Unity gameplay and backend engineer building multiplayer mobile and PC games.">
+    <meta name="theme-color" content="#0b1416">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FrostFlak — Unity Gameplay &amp; Backend Engineer">
+    <meta property="og:description" content="Multiplayer mobile and PC games, gameplay systems, networking and backend integrations.">
+    <meta property="og:image" content="data/images/metalbrawlers.jpg">
+    <link rel="icon" href="data/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo"><FrostFlak /></a>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/projects.html">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="hamburger" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body data-page="home">
+    <header id="site-nav"></header>
 
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="hero-studio">
-                    <img src="data/images/favicon.ico" alt="Icon" class="studio-icon">
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-avatar">
+                    <img src="data/images/favicon.ico" alt="FrostFlak logo">
                 </div>
                 <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">FrostFlak</h1>
-                <h2 class="hero-title">
-                    Unity Gameplay & Backend Engineer
-                </h2>
-
-                <p class="hero-description">
-                    With over ~3 years of professional experience in creating mobile and PC games.
-                    Focused on gameplay programming, multiplayer networking, game architecture,
-                    physics, and backend integrations. Strong problem-solver passionate about building games.
+                <h1 class="hero-name"><span class="text-gradient">FrostFlak</span></h1>
+                <p class="hero-role">Unity Gameplay <span class="sep">/</span> Backend Engineer</p>
+                <p class="hero-desc">
+                    I build mobile and PC games with 4+ years of professional experience, focused on gameplay
+                    programming, multiplayer networking, game architecture and backend integrations.
                 </p>
-                <div class="hero-cta">
+                <div class="hero-actions">
                     <a href="pages/projects.html" class="btn btn-primary">
-                        <i class="fas fa-gamepad"></i> View My Projects
+                        <svg class="icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                        Get in Touch
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-number" data-count="4" data-suffix="+">0</span>
+                        <span class="stat-label">Years experience</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Projects</span>
+                        <span class="stat-number" id="projectCount" data-suffix="+">0</span>
+                        <span class="stat-label">Projects shipped</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <h2 class="section-title">Skills</h2>
-
-    <div class="skills-group">
-
-        <div class="skill-category">
-            <h3>Game Engine</h3>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fas fa-cube"></i><span>Unity 3D</span></div>
-                <div class="skill-card"><i class="fas fa-code"></i><span>C#</span></div>
-                <div class="skill-card"><i class="fas fa-project-diagram"></i><span>DRY/SOLID</span></div>
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div>
+                        <span class="eyebrow">Selected work</span>
+                        <h2 class="section-title">Featured Projects</h2>
+                    </div>
+                    <a href="pages/projects.html" class="link-more">
+                        All Projects
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                </div>
+                <div class="projects-grid projects-grid--featured" id="featuredGrid">
+                    <div class="state">
+                        <div class="spinner"></div>
+                        <p>Loading projects…</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="skill-category">
-            <h3>Multiplayer / Networking</h3>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fas fa-network-wired"></i><span>FishNet</span></div>
-                <div class="skill-card"><i class="fas fa-bolt"></i><span>Photon</span></div>
-                <div class="skill-card"><i class="fas fa-server"></i><span>Client-Server Architecture</span></div>
-            </div>
-        </div>
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-head section-head--center reveal">
+                    <div>
+                        <span class="eyebrow">Background</span>
+                        <h2 class="section-title">Experience</h2>
+                    </div>
+                </div>
 
-        <div class="skill-category">
-            <h3>Backend / Systems</h3>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fas fa-code"></i><span>Golang</span></div>
-                <div class="skill-card"><i class="fas fa-sitemap"></i><span>REST API</span></div>
-                <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="skill-card"><i class="fas fa-database"></i><span>Websocket</span></div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Tools / Architecture</h3>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                <div class="skill-card"><i class="fab fa-github"></i><span>GitHub Actions</span></div>
-                <div class="skill-card"><i class="fas fa-archive"></i><span>VContainer</span></div>
-                <div class="skill-card"><i class="fas fa-tasks"></i><span>Jira</span></div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Game Development</h3>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fas fa-bolt"></i><span>Physics (Unity)</span></div>
-                <div class="skill-card"><i class="fas fa-magic"></i><span>DOTween</span></div>
-                <div class="skill-card"><i class="fas fa-chart-line"></i><span>Performance Optimization</span></div>
-                <div class="skill-card"><i class="fas fa-tachometer-alt"></i><span>Profiling (CPU/GPU)</span></div>
-            </div>
-        </div>
-
-    </div>
-
-    <section class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="timeline-date">Present</span>
+                <div class="timeline">
+                    <div class="timeline-item reveal" style="--i:0">
+                        <span class="timeline-marker"></span>
+                        <div class="timeline-card">
+                            <div class="timeline-top">
+                                <span class="timeline-type"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>Work</span>
+                                <span class="timeline-date">Present</span>
+                            </div>
                             <h3>Unity Developer</h3>
                             <h4>Freelance / Self-Employed</h4>
+                            <ul class="timeline-list">
+                                <li>Developed multiplayer prototypes using FishNet</li>
+                                <li>Designed and implemented core gameplay systems for personal and freelance Unity projects</li>
+                                <li>Improved runtime performance through profiling and draw call optimization in mobile/WebGL environments</li>
+                                <li>Built rhythm-based gameplay inspired by "osu!" (input timing, beat synchronization, precision mechanics)</li>
+                                <li>Integrated real-time motion tracking in Unity using MediaPipe models</li>
+                            </ul>
                         </div>
-                        <ul class="experience-ul">
-                            <li>Developed multiplayer prototypes using FishNet</li>
-                            <li>Designed and implemented core gameplay systems for personal and freelance Unity projects</li>
-                            <li>Improved runtime performance through profiling and draw call optimization in mobile/WebGL environments</li>
-                            <li>Developed rhythm-based gameplay systems inspired by "osu!" (input timing, beat synchronization, precision mechanics)</li>
-                            <li>Integrated real-time motion tracking systems in Unity using MediaPipe models</li>
-                        </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="timeline-date">2024 — 2026</span>
+
+                    <div class="timeline-item reveal" style="--i:1">
+                        <span class="timeline-marker"></span>
+                        <div class="timeline-card">
+                            <div class="timeline-top">
+                                <span class="timeline-type"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>Work</span>
+                                <span class="timeline-date">2024 — 2026</span>
+                            </div>
                             <h3>Unity Developer</h3>
-                            <h4>Commit APPS SRL</h4>
-                            <a href="https://apps.apple.com/us/app/metal-brawlers/id6550907464">Metal Brawlers</a>
-                        </div>
-                            <ul class="experience-ul">
-                                <li>Developed full gameplay loop</li>
+                            <h4>Commit APPS SRL — <a href="https://apps.apple.com/us/app/metal-brawlers/id6550907464" target="_blank" rel="noopener noreferrer">Metal Brawlers</a></h4>
+                            <ul class="timeline-list">
+                                <li>Developed the full gameplay loop</li>
                                 <li>Implemented server-authoritative multiplayer architecture using FishNet</li>
-                                <li>Designed and maintained REST API integration with backend services (Go-based server)</li>
-                                <li>Integrated IAP, GameAnalytics, Sentry, and Addressables into production pipeline</li>
-                                <li>Developed custom matchmaking and session management system</li>
+                                <li>Designed and maintained REST API integration with a Go-based backend</li>
+                                <li>Integrated IAP, GameAnalytics, Sentry and Addressables into the production pipeline</li>
+                                <li>Developed a custom matchmaking and session management system</li>
                                 <li>Implemented authentication and authorization flow for player accounts</li>
                             </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="timeline-date">2024 — 2029</span>
-                            <h3>Information Technology</h3>
-                            <h4>ULIM - Free International University of Moldova</h4>
                         </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="timeline-date">2020-2024</span>
-                            <h3>Programming and Analysis of Software Products</h3>
-                            <h4>ULIM College - Free International University of Moldova</h4>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="home-contact">
-        <div class="container">
-            <h2 class="section-title">Contact</span></h2>
-            <p class="contact-subtitle" style="text-align: center; max-width: 600px; margin: -24px auto 48px;">
-                I'm always open to discussing creative ideas, or opportunities.
-                Reach out through any of the channels below.
-            </p>
-            <div class="contact-links">
-                <a href="https://github.com/FrostFlak" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    <div class="contact-link-icon github">
-                        <i class="fab fa-github"></i>
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-head section-head--center reveal">
+                    <div>
+                        <span class="eyebrow">Let's talk</span>
+                        <h2 class="section-title">Get in Touch</h2>
+                        <p class="section-lede">Open to creative ideas, collaborations and opportunities. Reach out through any channel below.</p>
                     </div>
-                    <div class="contact-link-info">
-                        <h4>GitHub</h4>
-                        <p>@FrostFlak</p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/nicolae-rotari-569b3a196/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    <div class="contact-link-icon linkedin">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div class="contact-link-info">
-                        <h4>LinkedIn</h4>
-                        <p>Nicolae Rotari</p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="mailto:hello@nicolai.rotari.04@gmail.com" class="contact-link">
-                    <div class="contact-link-icon email">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-link-info">
-                        <h4>Email</h4>
-                        <p>nicolai.rotari.04@gmail.com</p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://x.com/frostflakdev?s=11" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    <div class="contact-link-icon x">
-                        <i class="fab fa-x"></i>
-                    </div>
-                    <div class="contact-link-info">
-                        <h4>X</h4>
-                        <p>@frostflakdev</p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://www.reddit.com/u/FrostFlakDev/s/l4f1crGaoL" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    <div class="contact-link-icon reddit">
-                        <i class="fab fa-reddit"></i>
-                    </div>
-                    <div class="contact-link-info">
-                        <h4>Reddit</h4>
-                        <p>u/FrostFlakDev </p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://frostflak.itch.io" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    <div class="contact-link-icon itch">
-                        <i class="fab fa-itch-io"></i>
-                    </div>
-                    <div class="contact-link-info">
-                        <h4>Itch.io</h4>
-                        <p>FrostFlak</p>
-                    </div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="mailto:nicolai.rotari.04@gmail.com" class="contact-link contact-link--primary reveal" style="--i:0">
+                        <span class="contact-icon email"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+                        <span class="contact-info"><h4>Email</h4><p>nicolai.rotari.04@gmail.com</p></span>
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                    <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="contact-link contact-link--wide reveal" style="--i:1">
+                        <span class="contact-icon cv"><svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg></span>
+                        <span class="contact-info"><h4>CV</h4><p>View my CV (PDF)</p></span>
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-external"></use></svg>
+                    </a>
+                    <a href="https://github.com/FrostFlak" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--i:2">
+                        <span class="contact-icon github"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></span>
+                        <span class="contact-info"><h4>GitHub</h4><p>@FrostFlak</p></span>
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                    <a href="https://frostflak.itch.io" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--i:3">
+                        <span class="contact-icon itch"><svg class="icon" aria-hidden="true"><use href="#i-itch"></use></svg></span>
+                        <span class="contact-info"><h4>Itch.io</h4><p>FrostFlak</p></span>
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nicolae-rotari-569b3a196/" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--i:4">
+                        <span class="contact-icon linkedin"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></span>
+                        <span class="contact-info"><h4>LinkedIn</h4><p>Nicolae Rotari</p></span>
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 FrostFlak</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="pages/projects.html">Projects</a>
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
-    <script src="js/script.js"></script>
+    <script src="js/sprite.js" defer></script>
+    <script src="data/projects.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
