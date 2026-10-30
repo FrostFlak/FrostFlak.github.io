@@ -78,7 +78,7 @@ window.FROSTFLAK_PROJECTS = [
     "playableLink": "https://frostflak.itch.io/chasing-the-sunset",
     "repoLink": "https://github.com/FrostFlak/chasing-the-sunset-gmtk2026",
     "downloads": 300,
-    "featured": true,
+    "featured": false,
     "highlights": [
       "Turned a single word theme into a playable concept fast",
       "Focused on a minimal, readable core loop"
@@ -101,6 +101,27 @@ window.FROSTFLAK_PROJECTS = [
     "highlights": [
       "Designed harvesting, refining and selling loops",
       "Built a third-person controller and interaction systems"
+    ]
+  },
+  {
+    "id": "scroll-inc",
+    "title": "Scroll-Inc",
+    "tagline": "Short incremental game about doomscroling.",
+    "description": "Ever wanted to ruin your attention span and get rich doing it? \nNow you can \nDoomscroll through endless social media posts, chase that sweet dopamine hit, unlock better phones, and turn your crippling internet addiction into a profitable business. \nTouch grass? Never heard of it",
+    "date": "2026-10-30",
+    "tags": ["Unity", "C#", "Incremental", "ECS"],
+    "image": "images/scroll-inc.png",
+    "screenshots": [
+      "images/screenshots/scroll-1.gif",
+      "images/screenshots/scroll-2.png",
+      "images/screenshots/scroll-3.png",
+    ],
+    "playableLink": "https://frostflak.itch.io/scroll-inc",
+    "repoLink": "",
+    "downloads": "",
+    "featured": true,
+    "highlights": [
+      "Implemented full gameplay using ECS"
     ]
   }
 ];
